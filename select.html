@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>good</title>
+	</head>
+	<body>
+		<div>
+			<select id = "1" onchange = "add1(this.value)">
+				<option value = "0">请选择</option>
+				<option value = "中国">中国</option>
+				<option value = "广西">广西</option>
+				<option value = "博白">博白</option>
+				<option value = "那林">那林</option>
+			</select>
+			<select id = "2">
+			
+			</select>
+			
+		</div>		
+	</body>
+	<script type="text/javascript">
+			var array = new Array(4);
+			var c = document.getElementById("2");
+			array[0] = ["中国","广西","北京"];
+			array[1] = ["广西","梧州","玉林"];
+			array[2] = ["博白","那林","凤山"];
+			array[3] = ["那林","大村","大垌"];
+			function add1(val){
+				var ops = c.getElementsByTagName("option");
+				for(var k = 0;k<ops.length;k++){
+					var op = ops[k];
+					c.removeChild(op);
+					k--;
+				}
+				for(var i = 0;i<array.length; i++){
+					var a = array[i];
+					var firstValue = a[0];
+					if(firstValue == val){
+						for(var j = 1;j<a.length; j++){
+							var value = a[j];							
+							var op = document.createElement("option");
+							var text = document.createTextNode(value);
+							op.appendChild(text);
+							c.appendChild(op);
+							// i--;
+						}					
+					}
+				}
+			}
+		</script>
+</html>
